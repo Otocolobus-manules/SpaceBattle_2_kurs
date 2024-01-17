@@ -16,7 +16,7 @@
         size = Size;
     }
 
-    public static Vector operator +(Vector v1, Vector v2)	// Сложение векторов 
+    public static Vector operator +(Vector v1, Vector v2)
     {
         if (v1.size != v2.size) throw new System.ArgumentException();
         Vector x = new Vector(v1.size);
@@ -27,7 +27,7 @@
         return x;
     }
 
-    public static Vector operator -(Vector v1, Vector v2)	// Разность векторов
+    public static Vector operator -(Vector v1, Vector v2)
     {
         if (v1.size != v2.size) throw new System.ArgumentException();
         Vector x = new Vector(v1.size);
@@ -38,14 +38,14 @@
         return x;
     }
 
-    public static bool operator ==(Vector v1, Vector v2)	// Сравнение на равенство
+    public static bool operator ==(Vector v1, Vector v2)
     {
         if (v1.size != v2.size) return false;
         for (int i = 0; i < v1.size; i++) if (v1.coords[i] != v2.coords[i]) return false;
         return true;
     }
 
-    public static bool operator !=(Vector v1, Vector v2)	// Сравнение на неравенство
+    public static bool operator !=(Vector v1, Vector v2)
     {
         return !(v1 == v2);
     }
@@ -56,7 +56,7 @@
         set => coords[i] = value;
     }
 
-    public override bool Equals(object? obj)	// Сравнение объектов
+    public override bool Equals(object? obj)
     {
         if (obj is not null)
         {
@@ -68,7 +68,7 @@
         return false;
     }
 
-    public override int GetHashCode()	// Хэш код
+    public override int GetHashCode()
     {
         return coords.GetHashCode();
     }
