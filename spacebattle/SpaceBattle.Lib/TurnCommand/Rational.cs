@@ -12,8 +12,8 @@
     public void operator +(Rational rat1, Rational rat2)
     {
         if (rat1._separation != v2._separation) throw new System.ArgumentException();
-        
-        rat1._corner = (rat1._corner + rat2._corner) % rat1._separation
+
+        rat1._corner = (rat1._corner + rat2._corner) % rat1._separation;
     }
     
     public void bool operator ==(Rational rat1, Rational rat2)

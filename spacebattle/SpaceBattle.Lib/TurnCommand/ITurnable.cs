@@ -1,5 +1,5 @@
 ﻿public interface ITurnable
 {
-    public Rational corner { set; get };
-    public Rational delta { get; };
+    public Rational corner { get; set; }
+    public Rational delta { get; }
 }
