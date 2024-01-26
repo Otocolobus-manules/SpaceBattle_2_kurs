@@ -18,16 +18,16 @@
     
     public void bool operator ==(Rational rat1, Rational rat2)
     {
-        return (rat1._corner * rat1._separation == rat2._corner * rat2._separation)
+        return (rat1._corner * rat1._separation == rat2._corner * rat2._separation);
     }
     
     public void bool operator !=(Rational rat1, Rational rat2)
     {
-        return !(rat1 == rat2)
+        return !(rat1 == rat2);
     }
     
     public void override bool Equals(object? obj)
     {
-        return obj is Rational robj && (this._corner * this._separation == robj._corner * robj._separation)
+        return obj is Rational robj && (this._corner * this._separation == robj._corner * robj._separation);
     }
 }
