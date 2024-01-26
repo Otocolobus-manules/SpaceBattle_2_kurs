@@ -11,7 +11,7 @@
 
     public static Rational operator +(Rational rat1, Rational rat2)
     {
-        if (rat1._separation != v2._separation) throw new System.ArgumentException();
+        if (rat1._separation != rat2._separation) throw new System.ArgumentException();
 
         rat1._corner = (rat1._corner + rat2._corner) % rat1._separation;
     }
