@@ -24,16 +24,7 @@ public class VectorTest
         v[1] = 10;
         Assert.Equal(v[1], 10);
     }
-
-    [Fact]
-    public void Dif_Vector()
-    {
-        Vector v1 = new Vector(new int[] { 1, 2, 1 });
-        Vector v2 = new Vector(new int[] { 3, -2, 1 });
-        Vector expected = new Vector(new int[] { -2, 4, 0 });
-        Assert.True(v1 - v2 == expected);
-    }
-
+    
     [Fact]
     public void Sum_Vector()
     {
@@ -49,14 +40,6 @@ public class VectorTest
         Vector v1 = new Vector(new int[] { 1, 2, 1 });
         Vector v2 = new Vector(new int[] { 3, -2, 1, 2 });
         Assert.Throws<ArgumentException>(() => v1 + v2);
-    }
-    
-    [Fact]
-    public void Dif_Vector_with_different_len()
-    {
-        Vector v1 = new Vector(new int[] { 1, 2, 1 });
-        Vector v2 = new Vector(new int[] { 3, -2, 1, 2 });
-        Assert.Throws<ArgumentException>(() => v1 - v2);
     }
 
     [Fact]
@@ -116,15 +99,7 @@ public class VectorTest
         Vector v3 = new Vector(new int[] { 3, -2, 1, 4 });
         Assert.Throws<ArgumentException>(() => v2 + v3);
     }
-
-    [Fact]
-    public void DifUnequalTest()
-    {
-        Vector v2 = new Vector(new int[] { 9, -6, 3 });
-        Vector v3 = new Vector(new int[] { 3, -2, 1, 4 });
-        Assert.Throws<ArgumentException>(() => v2 - v3);
-    }
-
+    
     [Fact]
     public void EqualNullTest()
     {

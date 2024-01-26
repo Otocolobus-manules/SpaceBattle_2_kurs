@@ -26,18 +26,7 @@
         }
         return x;
     }
-
-    public static Vector operator -(Vector v1, Vector v2)
-    {
-        if (v1.size != v2.size) throw new System.ArgumentException();
-        Vector x = new Vector(v1.size);
-        for (int i = 0; i < v1.size; i++)
-        {
-            x.coords[i] = v1.coords[i] - v2.coords[i];
-        }
-        return x;
-    }
-
+    
     public static bool operator ==(Vector v1, Vector v2)
     {
         if (v1.size != v2.size) return false;
