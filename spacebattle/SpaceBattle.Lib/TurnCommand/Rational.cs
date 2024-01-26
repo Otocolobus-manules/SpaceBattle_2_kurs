@@ -9,7 +9,7 @@
         this._separation = separation;
     }
 
-    public static operator +(Rational rat1, Rational rat2)
+    public static Rational operator +(Rational rat1, Rational rat2)
     {
         if (rat1._separation != v2._separation) throw new System.ArgumentException();
 
