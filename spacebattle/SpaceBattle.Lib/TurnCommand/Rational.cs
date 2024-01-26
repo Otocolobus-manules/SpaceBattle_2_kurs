@@ -30,4 +30,6 @@
     {
         return obj is Rational robj && (this._corner * this._separation == robj._corner * robj._separation);
     }
+    
+    public override int GetHashCode() => HashCode.Combine(_corner, _separation);
 }
