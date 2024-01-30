@@ -53,7 +53,7 @@
     [Fact]
     public void GetHashCodeTest()
     {
-        Rational rat = new Rational();
+        Rational rat = new Rational(1);
         rat.GetHashCode();
     }
 }
