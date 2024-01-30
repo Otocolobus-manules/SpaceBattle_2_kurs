@@ -18,7 +18,7 @@
     
     public static bool operator ==(Rational rat1, Rational rat2)
     {
-        return (rat1._corner * rat1._separation == rat2._corner * rat2._separation);
+        return (rat1._corner == rat2._corner && rat1._separation == rat2._separation);
     }
     
     public static bool operator !=(Rational rat1, Rational rat2)
@@ -28,7 +28,7 @@
     
     public override bool Equals(object? obj)
     {
-        return obj is Rational robj && (this._corner * this._separation == robj._corner * robj._separation);
+        return obj is Rational robj && (this._corner == robj._corner && this._separation == robj._separation);
     }
     
     public override int GetHashCode() => HashCode.Combine(_corner, _separation);

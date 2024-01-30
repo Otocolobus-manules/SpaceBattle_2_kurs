@@ -22,11 +22,13 @@
         Rational rat1 = new Rational(10);
         Rational rat2 = new Rational(20);
         Rational rat3 = new Rational(30);
+		Rational rat4 = new Rational(11, 113);
         Assert.True(rat1 + rat2 == rat3);
+		Assert.Throws<System.ArgumentException>(() => rat1 + rat4);
     }
 
     [Fact]
-    public void Eq_NotEq_Test()
+    public void corner_Eq_NotEq_Test()
     {
         Rational rat1 = new Rational(10);
         Rational rat2 = new Rational(20);
