@@ -3,7 +3,7 @@
     public int _corner;
     public int _separation;
 
-    public Rational(int corner = 0, int separation = 360)
+    public Rational(int corner, int separation = 360)
     {
         this._corner = corner % separation;
         this._separation = separation;
