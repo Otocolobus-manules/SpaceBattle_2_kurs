@@ -1,6 +1,4 @@
-﻿namespace DefaultNamespace;
-
-public class TurnCommandTest
+﻿public class TurnCommandTest
 {
     [Fact]
     public void Rotate_Test()
