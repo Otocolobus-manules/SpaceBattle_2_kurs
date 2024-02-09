@@ -8,24 +8,15 @@
 
         var spaceship = new Mock<IMovable>();
         
-        var CmdExample = new Mock<ICommand>();
-        CmdExample.Setup(x => x.Execute());
+        var SpeedChangeCommand = new Mock<IStartegy>();
+        SpeedChangeCommand.Setup(x => x.Execute(It.IsAny<IUObject>(), It.IsAny<Vector>()));
 
-        var ComeBackCommmandStrategy = new Mock<IStartegy>();
-        var ComeBackQueue = new Mock<IStartegy>();
-        var ComeBackSpeedChangeStrategy = new Mock<IStartegy>();
-        ComeBackCommmandStrategy.Setup(x => x.Execute(It.IsAny<object[]>())).Returns(CmdExample.Object);
-        ComeBackQueue.Setup(x => x.Execute()).Returns(new Queue<ICommand>());
-        ComeBackSpeedChangeStrategy.Setup(x => x.Execute(It.IsAny<IUObject>(), It.IsAny<Vector>()));
-
-        var ComeBackMoveCommmandStrategy = new Mock<IStartegy>();
+        var LongMoveCommmand = new Mock<IStartegy>();
         var k = new MoveCommand(spaceship.Object);
-        ComeBackMoveCommmandStrategy.Setup(x => x.Execute(It.IsAny<object[]>())).Returns(new MoveCommand(spaceship.Object));
-
-        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.Set", (object[] args) => ComeBackCommmandStrategy.Object.Execute(args)).Execute();
-        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.LongMove", (object[] args) => ComeBackMoveCommmandStrategy.Object.Execute(args)).Execute();
-        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Vars.Queue", (object[] args) => ComeBackQueue.Object.Execute()).Execute();
-        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.SpeedChange", (object[] args) => ComeBackSpeedChangeStrategy.Object.Execute(args)).Execute();
+        LongMoveCommmand.Setup(x => x.Execute(It.IsAny<object[]>())).Returns(new MoveCommand(spaceship.Object));
+        
+        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.LongMove", (object[] args) => LongMoveCommmand.Object.Execute(args)).Execute();
+        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.SpeedChange", (object[] args) => SpeedChangeCommand.Object.Execute(args)).Execute();
     }
     
     [Fact]
