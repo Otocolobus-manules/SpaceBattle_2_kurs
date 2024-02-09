@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.Concurrent;
-using System;
-using System.Diagnostics;
-
-public class VectorTest
+﻿public class VectorTest
 {
     [Fact]
     public void Create_empty_Vector_Test()
@@ -22,7 +17,7 @@ public class VectorTest
     {
         Vector v = new Vector(new int[] { 3, -2, 1, 4 });
         v[1] = 10;
-        Assert.Equal(v[1], 10);
+        Assert.Equal(10, v[1]);
     }
     
     [Fact]

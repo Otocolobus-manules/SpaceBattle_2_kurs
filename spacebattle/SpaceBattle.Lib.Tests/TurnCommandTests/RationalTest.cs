@@ -12,8 +12,8 @@
         Rational rat = new Rational(12, 22);
         rat._corner = 23;
         rat._separation = 34;
-        Assert.Equal(rat._corner, 23);
-        Assert.Equal(rat._separation, 34);
+        Assert.Equal(23, rat._corner);
+        Assert.Equal(34, rat._separation);
     }
 
     [Fact]

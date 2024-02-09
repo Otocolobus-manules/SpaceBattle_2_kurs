@@ -1,36 +1,36 @@
 ﻿public class Vector
 {
 
-    private int[] coords;
-    public int size;
+    private readonly int[] _coords;
+    public readonly int _size;
 
     public Vector(int[] args)
     {
-        coords = args;
-        size = args.Length;
+        _coords = args;
+        _size = args.Length;
     }
 
-    public Vector(int Size)
+    public Vector(int size)
     {
-        coords = new int[Size];
-        size = Size;
+        _coords = new int[size];
+        _size = size;
     }
 
     public static Vector operator +(Vector v1, Vector v2)
     {
-        if (v1.size != v2.size) throw new System.ArgumentException();
-        Vector x = new Vector(v1.size);
-        for (int i = 0; i < v1.size; i++)
+        if (v1._size != v2._size) throw new System.ArgumentException();
+        Vector x = new Vector(v1._size);
+        for (int i = 0; i < v1._size; i++)
         {
-            x.coords[i] = v1.coords[i] + v2.coords[i];
+            x._coords[i] = v1._coords[i] + v2._coords[i];
         }
         return x;
     }
     
     public static bool operator ==(Vector v1, Vector v2)
     {
-        if (v1.size != v2.size) return false;
-        for (int i = 0; i < v1.size; i++) if (v1.coords[i] != v2.coords[i]) return false;
+        if (v1._size != v2._size) return false;
+        for (int i = 0; i < v1._size; i++) if (v1._coords[i] != v2._coords[i]) return false;
         return true;
     }
 
@@ -41,8 +41,8 @@
 
     public int this[int i]
     {
-        get => coords[i];
-        set => coords[i] = value;
+        get => _coords[i];
+        set => _coords[i] = value;
     }
 
     public override bool Equals(object? obj)
@@ -50,8 +50,8 @@
         if (obj is not null)
         {
             Vector v = (Vector)obj;
-            if (v.size != size) return false;
-            for (int i = 0; i < v.size; i++) if (v.coords[i] != coords[i]) return false;
+            if (v._size != _size) return false;
+            for (int i = 0; i < v._size; i++) if (v._coords[i] != _coords[i]) return false;
             return true;
         }
         return false;
@@ -59,6 +59,6 @@
 
     public override int GetHashCode()
     {
-        return coords.GetHashCode();
+        return _coords.GetHashCode();
     }
 }
