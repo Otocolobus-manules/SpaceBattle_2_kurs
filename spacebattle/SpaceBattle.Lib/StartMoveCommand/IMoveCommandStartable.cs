@@ -1,7 +1,4 @@
-﻿using Hwdtech;
-
-
-public interface IMoveCommandStartable
+﻿public interface IMoveCommandStartable
 {
     IUObject obj { get; }
     Vector velocity { get; }

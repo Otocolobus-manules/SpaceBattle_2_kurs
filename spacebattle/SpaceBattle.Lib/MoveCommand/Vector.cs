@@ -6,8 +6,8 @@
 
     public Vector(int[] args)
     {
-        this.coords = args;
-        this.size = args.Length;
+        coords = args;
+        size = args.Length;
     }
 
     public Vector(int Size)
@@ -50,8 +50,8 @@
         if (obj is not null)
         {
             Vector v = (Vector)obj;
-            if (v.size != this.size) return false;
-            for (int i = 0; i < v.size; i++) if (v.coords[i] != this.coords[i]) return false;
+            if (v.size != size) return false;
+            for (int i = 0; i < v.size; i++) if (v.coords[i] != coords[i]) return false;
             return true;
         }
         return false;

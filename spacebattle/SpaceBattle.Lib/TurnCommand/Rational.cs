@@ -5,8 +5,8 @@
 
     public Rational(int corner, int separation = 360)
     {
-        this._corner = corner % separation;
-        this._separation = separation;
+        _corner = corner % separation;
+        _separation = separation;
     }
 
     public static Rational operator +(Rational rat1, Rational rat2)
@@ -28,7 +28,7 @@
     
     public override bool Equals(object? obj)
     {
-        return obj is Rational robj && (this._corner == robj._corner && this._separation == robj._separation);
+        return obj is Rational robj && (_corner == robj._corner && _separation == robj._separation);
     }
     
     public override int GetHashCode() => HashCode.Combine(_corner, _separation);
