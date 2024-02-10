@@ -1,6 +1,4 @@
-﻿using Hwdtech;
-
-public class StartMoveCommand: ICommand
+﻿public class StartMoveCommand: ICommand
 {
     private IMoveCommandStartable _startable;
 
