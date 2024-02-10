@@ -19,8 +19,8 @@
     public static Vector operator +(Vector v1, Vector v2)
     {
         if (v1._size != v2._size) throw new System.ArgumentException();
-        Vector x = new Vector(v1._size);
-        for (int i = 0; i < v1._size; i++)
+        var x = new Vector(v1._size);
+        for (var i = 0; i < v1._size; i++)
         {
             x._coords[i] = v1._coords[i] + v2._coords[i];
         }
@@ -30,7 +30,7 @@
     public static bool operator ==(Vector v1, Vector v2)
     {
         if (v1._size != v2._size) return false;
-        for (int i = 0; i < v1._size; i++) if (v1._coords[i] != v2._coords[i]) return false;
+        for (var i = 0; i < v1._size; i++) if (v1._coords[i] != v2._coords[i]) return false;
         return true;
     }
 
@@ -49,9 +49,9 @@
     {
         if (obj is not null)
         {
-            Vector v = (Vector)obj;
+            var v = (Vector)obj;
             if (v._size != _size) return false;
-            for (int i = 0; i < v._size; i++) if (v._coords[i] != _coords[i]) return false;
+            for (var i = 0; i < v._size; i++) if (v._coords[i] != _coords[i]) return false;
             return true;
         }
         return false;
