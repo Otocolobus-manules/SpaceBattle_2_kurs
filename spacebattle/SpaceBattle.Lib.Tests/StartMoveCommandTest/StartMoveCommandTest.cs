@@ -12,7 +12,6 @@
         SpeedChangeCommand.Setup(x => x.Execute(It.IsAny<IUObject>(), It.IsAny<Vector>()));
 
         var LongMoveCommmand = new Mock<IStartegy>();
-        var k = new MoveCommand(spaceship.Object);
         LongMoveCommmand.Setup(x => x.Execute(It.IsAny<object[]>())).Returns(new MoveCommand(spaceship.Object));
         
         Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.LongMove", (object[] args) => LongMoveCommmand.Object.Execute(args)).Execute();
@@ -23,7 +22,7 @@
     public void StartCommand_Exe()
     {
         Init_Score_Env();
-        Vector vector = new Vector(new int[]{1, 1});
+        var vector = new Vector(new int[]{1, 1});
         
 		var UObject = new Mock<IUObject>();
         UObject.Setup(x => x.set_property("velocity", It.IsAny<Vector>()));
