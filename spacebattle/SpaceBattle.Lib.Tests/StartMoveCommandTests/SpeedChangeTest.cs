@@ -14,8 +14,7 @@
     [Fact]
     public void Execute_SpeedChange_With_Another()
     {
-        var UObject = new Mock<IUObject>();
         int[] vector = { 1, 1 };
-        Assert.Throws<System.InvalidCastException>(() => new SpeedChange(new object(), new Vector(vector)).Execute());
+        Assert.Throws<InvalidCastException>(() => new SpeedChange(new object(), new Vector(vector)).Execute());
     }
 }
