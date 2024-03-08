@@ -24,8 +24,5 @@ jobs:
       - name: Format
         run: cd spacebattle && dotnet format ./spacebattle.sln && cd ..
 
-      - name: Verify format
-        run: cd spacebattle && dotnet format --verify-no-changes && cd ..
-
       - name: SpaceBattle test
         run: cd ./spacebattle/SpaceBattle.Lib.Tests/ && dotnet test /p:CollectCoverage=true
