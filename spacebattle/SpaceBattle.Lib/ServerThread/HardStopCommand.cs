@@ -1,6 +1,6 @@
 ﻿public class HardStopCommand : ICommand
 {
-    private readonly IStopable _thread;
+    readonly IStopable _thread;
 
     public HardStopCommand(ServerThread thread)
     {

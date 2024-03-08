@@ -3,8 +3,8 @@
 
 public class SoftStopCommand : ICommand
 {
-    private BlockingCollection<ICommand> _queue;
-    private readonly ServerThread _thread;
+    BlockingCollection<ICommand> _queue;
+    readonly ServerThread _thread;
 
     public SoftStopCommand(ServerThread thread, BlockingCollection<ICommand> queue)
     {

@@ -3,9 +3,9 @@
 
 public class ServerThread : IStartegy, IMethodChangeable, IStopable
 {
-    private IStartegy _s;
-    private bool _run = true;
-    private readonly Thread _thread;
+    IStartegy _s;
+    bool _run = true;
+    readonly Thread _thread;
     BlockingCollection<ICommand> _queue;
 
     public ServerThread(IStartegy s, BlockingCollection<ICommand> x)

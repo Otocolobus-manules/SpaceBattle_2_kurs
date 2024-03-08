@@ -1,6 +1,6 @@
 ﻿public class StandartChangeThreadCommand : ICommand
 {
-    private readonly ServerThread _thread;
+    readonly ServerThread _thread;
     readonly IStartegy _new_strategy;
 
     public StandartChangeThreadCommand(ServerThread thread, IStartegy new_strategy)
