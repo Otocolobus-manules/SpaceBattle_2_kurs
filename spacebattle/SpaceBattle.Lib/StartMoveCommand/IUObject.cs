@@ -1,5 +1,6 @@
 ﻿public interface IUObject
 {
-    void set_property(string key, object value);
-    object get_property(string key);
+    public object GetProperty(string name);
+    public void SetProperty(string name, object value);
+    public void DeleteProperty(string name);
 }
