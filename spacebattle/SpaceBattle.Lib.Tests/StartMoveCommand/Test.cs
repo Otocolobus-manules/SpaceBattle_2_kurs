@@ -110,7 +110,7 @@ public class StartMoveCommandTests
 
 public class FakeQueue: IQueue
 {
-    private ICommand _cmd;
+    private ICommand _cmd = default!;
     public void Add(ICommand cmd)
     {
         _cmd = cmd;
