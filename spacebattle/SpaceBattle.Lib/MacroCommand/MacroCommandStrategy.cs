@@ -7,6 +7,8 @@
         {
             commands.Add(Hwdtech.IoC.Resolve<ICommand>((string)cmd));
         });
+        
+        Hwdtech.IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.MacroCommand", (object[] args) => { return new MacroCommand((ICommand[])args); }).Execute();
         return Hwdtech.IoC.Resolve<ICommand>("Commands.MacroCommand", commands.ToArray());
     }
 }
