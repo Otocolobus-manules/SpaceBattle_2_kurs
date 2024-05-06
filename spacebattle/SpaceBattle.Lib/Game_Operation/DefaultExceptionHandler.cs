@@ -1,4 +1,7 @@
-﻿public class DefaultExceptionHandler: IStartegy
+﻿namespace Game_operation;
+
+
+public class DefaultExceptionHandler: IStartegy
 {
     object _exception_container;
     public DefaultExceptionHandler(object exception_container){

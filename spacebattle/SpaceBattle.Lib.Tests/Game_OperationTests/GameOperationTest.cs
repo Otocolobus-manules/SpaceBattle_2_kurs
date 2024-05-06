@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Game_operation;
 
 
 public class GameOperationTest

@@ -1,4 +1,5 @@
-﻿﻿using System.Collections.Concurrent;
+﻿using MessagePreprocess;
+using System.Collections.Concurrent;
 
 public class MessageProcessingTests
 {
