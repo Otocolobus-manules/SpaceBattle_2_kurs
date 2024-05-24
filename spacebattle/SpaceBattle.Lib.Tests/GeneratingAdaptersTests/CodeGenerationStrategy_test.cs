@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
+
 public class CodeGenerationStrategys_test
 {
     [Fact]
@@ -90,5 +91,11 @@ public System.Object step_forward() => {return 2 + 2};
         var code_builder = Hwdtech.IoC.Resolve<CodeGenerationStrategy>("CodeGenerationStrategy", test_template);
 
         Assert.Equal(expected_results, code_builder.Execute(test_dictionary_of_attributes_and_methods));
+    }
+
+    [Fact]
+    public void code_generation_null_check()
+    {
+        Assert.Throws<ArgumentNullException>(() => new CodeGenerationStrategy(null!));
     }
 }

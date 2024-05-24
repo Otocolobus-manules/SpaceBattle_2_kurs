@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
+
 public class SetDefinitionInCodeGenerationStrategy_test
 {
     [Fact]
@@ -35,7 +36,7 @@ public class SetDefinitionInCodeGenerationStrategy_test
                 {
                     throw new ArgumentNullException(nameof(methodString), "Method string cannot be null");
                 }
-                 var result = Regex.Replace(Regex.Replace(methodString, @"`\d\[([^\[\]]+)\]", "<$1>"), "\\(.*\\)", String.Empty);
+                var result = Regex.Replace(Regex.Replace(methodString, @"`\d\[([^\[\]]+)\]", "<$1>"), "\\(.*\\)", String.Empty);
                 return result;
             }).ToList<System.String>();
         }).Execute();
@@ -52,5 +53,27 @@ public class SetDefinitionInCodeGenerationStrategy_test
 
         definition_add_strategy_test_object.Execute((List<String>)methods_get_strategy_test_object.Execute());
         Assert.Equal(expected_results, definition_add_strategy_test_object.Execute(new List<String>() { "() => {return 2 + 2}" }));
+    }
+
+    [Fact]
+    public void set_definition_null_check()
+    {
+        Assert.Throws<ArgumentNullException>(() => new SetDefinitionInCodeGenerationStrategy(null!));
+    }
+
+    [Fact]
+    public void execute_with_null_args_check()
+    {
+        var definition = "Some definition";
+        var strategy = new SetDefinitionInCodeGenerationStrategy(definition);
+        Assert.Throws<ArgumentException>(() => strategy.Execute(null!));
+    }
+
+    [Fact]
+    public void execute_with_empty_args_check()
+    {
+        var definition = "Some definition";
+        var strategy = new SetDefinitionInCodeGenerationStrategy(definition);
+        Assert.Throws<ArgumentException>(() => strategy.Execute(new object[] { }));
     }
 }

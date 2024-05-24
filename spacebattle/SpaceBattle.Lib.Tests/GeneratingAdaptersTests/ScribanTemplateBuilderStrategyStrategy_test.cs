@@ -1,9 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 
-public class ScribanTemplateBuilderStrategyStrategy_test 
+
+public class ScribanTemplateBuilderStrategy_test
 {
     [Fact]
-    public void standart_get_code_generation() 
+    public void standart_get_code_generation()
     {
         new Hwdtech.Ioc.InitScopeBasedIoCImplementationCommand().Execute();
         Hwdtech.IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", Hwdtech.IoC.Resolve<object>("Scopes.New", Hwdtech.IoC.Resolve<object>("Scopes.Root"))).Execute();
@@ -75,5 +76,28 @@ public System.Collections.Generic.Dictionary<System.Object,System.Object> nexts;
         var scriban_builder = Hwdtech.IoC.Resolve<ScribanTemplateBuilderStrategy>("ScribanTemplateBuilderStrategy", test_template);
 
         Assert.Equal(expected_results, scriban_builder.Execute(test_dictionary_of_attributes_and_methods));
+    }
+
+    [Fact]
+    public void scriban_template_null_check()
+    {
+        Assert.Throws<ArgumentNullException>(() => new ScribanTemplateBuilderStrategy((string)null!));
+    }
+
+    [Fact]
+    public void execute_with_null_args_check()
+    {
+        var template = @"
+public class TestClassName{
+{{ for attributes_name in attributes  }}
+public {{attributes_name}};
+{{ end }}
+{{ for method_name in methods  }}
+public {{method_name}};
+{{ end }}
+}
+";
+        var scriban_builder = new ScribanTemplateBuilderStrategy(template);
+        Assert.Throws<ArgumentException>(() => scriban_builder.Execute(null!));
     }
 }

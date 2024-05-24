@@ -1,9 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 
+
 public class AttributesGetStrategy_test
 {
     [Fact]
-    public void standart_get_atributes() 
+    public void standart_get_atributes()
     {
         new Hwdtech.Ioc.InitScopeBasedIoCImplementationCommand().Execute();
         Hwdtech.IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", Hwdtech.IoC.Resolve<object>("Scopes.New", Hwdtech.IoC.Resolve<object>("Scopes.Root"))).Execute();
@@ -30,5 +31,11 @@ public class AttributesGetStrategy_test
         var expected_results = new List<System.String>() { "System.Collections.Generic.Dictionary<System.Object,System.Object> nexts" };
 
         Assert.Equal(expected_results, attributes_get_strategy_test_object.Execute());
+    }
+
+    [Fact]
+    public void get_attributes_null_check()
+    {
+        Assert.Throws<ArgumentNullException>(() => new AttributesGetStrategy(null!));
     }
 }
