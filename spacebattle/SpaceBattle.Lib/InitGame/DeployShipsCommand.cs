@@ -2,7 +2,10 @@
 {
     private IEnumerable<IUObject> _gameobj;
 
-    public DeployShipsCommand(IEnumerable<IUObject> gameobj) { _gameobj = gameobj; }
+    public DeployShipsCommand(IEnumerable<IUObject> gameobj)
+    {
+        _gameobj = gameobj;
+    }
 
     public void Execute()
     {

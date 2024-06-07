@@ -2,7 +2,10 @@
 {
     private int _gameObjCount;
 
-    public CreateObjectCollection(int gameObjCount) => _gameObjCount = gameObjCount;
+    public CreateObjectCollection(int gameObjCount)
+    {
+        _gameObjCount = gameObjCount;
+    }
 
     public void Execute()
     {
